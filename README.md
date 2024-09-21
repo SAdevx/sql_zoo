@@ -6,7 +6,7 @@ My solutions to [sql zoo tutorials.](https://sqlzoo.net/wiki/SQL_Tutorial)
 1. [SELECT name](#select-name)
 
 
-[SELECT basics](https://sqlzoo.net/wiki/SELECT_basics)
+## SELECT basics
 
 1. 
 ```sql
@@ -24,4 +24,4 @@ SELECT name, area FROM world
 WHERE area BETWEEN 200000 AND 250000;
 ```
 
-[SELECT name](https://sqlzoo.net/wiki/SELECT_names)
+## SELECT name
