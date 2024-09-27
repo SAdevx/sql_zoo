@@ -5,6 +5,7 @@ My solutions to [sql zoo tutorials.](https://sqlzoo.net/wiki/SQL_Tutorial)
 0. [SELECT basics](#select-basics)
 1. [SELECT names](#select-names)
 2. [SELECT from world](#select-from-world)
+3. [SELECT from nobel](#select-from-nobel)
 
 
 ## SELECT basics
@@ -172,3 +173,47 @@ AND name LIKE '%i%'
 AND name LIKE '%o%'
 AND name LIKE '%u%';
 ```
+## SELECT from nobel
+1.
+```sql
+SELECT yr, subject, winner
+FROM nobel WHERE yr = 1950;
+```
+2.
+```sql
+SELECT winner FROM nobel
+WHERE yr = 1962 AND subject = 'literature';
+```
+3.
+```sql
+SELECT yr, subject FROM nobel
+WHERE winner = 'Albert Einstein';
+```
+4.
+```sql
+SELECT winner FROM nobel
+WHERE subject = 'peace' AND yr >= 2000;
+```
+5.
+```sql
+SELECT yr, subject, winner FROM nobel
+WHERE subject = 'literature' 
+AND yr >= 1980 AND yr <= 1989;
+```
+6.
+```sql
+SELECT * FROM nobel
+WHERE winner IN ('Theodore Roosevelt','Woodrow Wilson','Jimmy Carter','Barack Obama');
+```
+7.
+```sql
+SELECT winner FROM nobel
+WHERE winner LIKE 'John%';
+```
+8.
+```sql
+SELECT yr, subject, winner FROM nobel
+WHERE subject = 'physics' AND yr = 1980
+OR subject = 'chemistry' AND yr = 1984;
+```
+
