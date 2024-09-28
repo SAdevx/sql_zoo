@@ -196,8 +196,8 @@ WHERE subject = 'peace' AND yr >= 2000;
 ```
 5.
 ```sql
-SELECT yr, subject, winner FROM nobel
-WHERE subject = 'literature' 
+SELECT * FROM nobel
+WHERE subject = 'literature'
 AND yr >= 1980 AND yr <= 1989;
 ```
 6.
@@ -212,8 +212,40 @@ WHERE winner LIKE 'John%';
 ```
 8.
 ```sql
-SELECT yr, subject, winner FROM nobel
+SELECT * FROM nobel
 WHERE subject = 'physics' AND yr = 1980
 OR subject = 'chemistry' AND yr = 1984;
+```
+9.
+```sql
+SELECT * FROM nobel 
+WHERE yr = 1980 AND subject NOT IN ('Chemistry','Medicine');
+```
+10.
+```sql
+SELECT * FROM nobel 
+WHERE subject IN ('Medicine') AND yr < 1910
+OR subject IN ('Literature') AND yr >= 2004;
+```
+11.
+```sql
+SELECT * FROM nobel
+WHERE winner = 'PETER GRÜNBERG';
+```
+12.
+```sql
+SELECT * FROM nobel 
+WHERE winner = 'EUGENE O\'NEILL';
+```
+13.
+```sql
+SELECT winner, yr, subject FROM nobel
+WHERE winner LIKE 'Sir%' ORDER BY yr DESC, winner;
+```
+14.
+```sql
+SELECT winner, subject FROM nobel
+WHERE yr = 1984
+ORDER BY subject IN ('Chemistry','Physics'), subject, winner;
 ```
 
