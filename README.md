@@ -130,13 +130,13 @@ WHERE capital LIKE concat('%',name,'%');
 14.
 
 ```sql
-working on solution progress
+working on solution 
 ```
 
 15.
 
 ```sql
-working on solution progress
+working on solution
 ```
 
 ## SELECT from world
