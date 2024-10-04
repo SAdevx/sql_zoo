@@ -474,3 +474,24 @@ SELECT team1, team2, player
 FROM game JOIN goal ON (id=matchid)
 WHERE player LIKE 'Mario%';
 ```
+
+5.
+```sql
+SELECT player, teamid, coach, gtime
+FROM goal JOIN eteam ON (teamid=id)
+WHERE gtime<=10;
+```
+
+6.
+```sql
+SELECT mdate, teamname FROM game
+JOIN eteam ON (team1=eteam.id)
+WHERE coach = 'Fernando Santos';
+```
+
+7.
+```sql
+SELECT player FROM goal
+JOIN game ON (id=matchid)
+WHERE stadium = 'National Stadium, Warsaw';
+```
