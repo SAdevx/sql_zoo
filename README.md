@@ -11,6 +11,7 @@ My solutions to [sql zoo tutorials.](https://sqlzoo.net/wiki/SQL_Tutorial)
 4. [SELECT within SELECT](#select-within-select)
 5. [SUM COUNT](#sum-and-count)
 6. [JOIN OPERATION](#join-operation)
+7. [MORE JOIN OPERATION](#more-join-operation)
 
 ## SELECT basics
 
@@ -391,26 +392,31 @@ WHERE continent = 'Europe';
 6.
 
 ```sql
+solution in progress
 ```
 
 7.
 
 ```sql
+solution in progress
 ```
 
 8.
 
 ```sql
+solution in progress
 ```
 
 9.
 
 ```sql
+solution in progress
 ```
 
 10.
 
 ```sql
+solution in progress
 ```
 
 
@@ -531,35 +537,73 @@ WHERE stadium = 'National Stadium, Warsaw';
 8.
 
 ```sql
-
+solution in progress
 ```
 
 9.
 
 ```sql
-
+solution in progress
 ```
 
 10.
 
 ```sql
-
+solution in progress
 ```
 
 11.
 
 ```sql
-
+solution in progress
 ```
 
 12.
 
 ```sql
-
+solution in progress
 ```
 
 13.
 
 ```sql
+solution in progress
+```
 
+## MORE JOIN OPERATION
+
+1.
+
+```sql
+SELECT id, title FROM movie WHERE yr=1962;
+```
+
+2.
+
+```sql
+SELECT yr FROM movie
+WHERE title = 'Citizen Kane';
+```
+
+3.
+
+```sql
+SELECT id, title, yr FROM movie
+WHERE title LIKE '%Star%'
+AND title LIKE '%Trek%'
+ORDER BY yr;
+```
+
+4.
+
+```sql
+SELECT actor.id FROM actor
+WHERE name='Glenn Close';
+```
+
+5.
+
+```sql
+SELECT id FROM movie
+WHERE title='Casablanca';
 ```
