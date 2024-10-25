@@ -607,3 +607,21 @@ WHERE name='Glenn Close';
 SELECT id FROM movie
 WHERE title='Casablanca';
 ```
+
+6.
+
+```sql
+SELECT name FROM movie
+JOIN casting ON movie.id=casting.movieid
+JOIN actor ON actor.id=casting.actorid
+WHERE movieid=11768;
+```
+
+7.
+
+```sql
+SELECT name FROM movie
+JOIN casting ON movie.id=casting.movieid
+JOIN actor ON actor.id=casting.actorid
+WHERE title='Alien';
+```
