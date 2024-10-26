@@ -625,3 +625,37 @@ JOIN casting ON movie.id=casting.movieid
 JOIN actor ON actor.id=casting.actorid
 WHERE title='Alien';
 ```
+
+8.
+```sql
+SELECT title FROM movie
+JOIN casting ON movie.id=movieid
+JOIN actor ON actorid=actor.id
+WHERE name = 'Harrison Ford';
+```
+
+9.
+```sql
+SELECT title FROM movie
+JOIN casting ON movie.id=movieid
+JOIN actor ON actor.id=actorid
+WHERE name='Harrison Ford' AND ord != 1;
+```
+
+10.
+```sql
+SELECT title,name FROM movie
+JOIN casting ON movie.id=movieid
+JOIN actor ON actor.id = actorid
+WHERE yr=1962 && ord=1;
+```
+
+11.
+```sql
+SELECT yr,COUNT(title) FROM
+movie JOIN casting ON movie.id=movieid
+OIN actor   ON actorid=actor.id
+WHERE name='Rock Hudson'
+GROUP BY yr
+HAVING COUNT(title) > 2
+```
