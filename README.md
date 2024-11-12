@@ -695,15 +695,68 @@ ON (teacher.dept=dept.id)
 ```
 
 3.
+
 ```sql
 SELECT teacher.name, dept.name FROM teacher
 LEFT JOIN dept ON (teacher.dept=dept.id)
 ```
 
 4.
+
 ```sql
 SELECT teacher.name, dept.name FROM teacher
 RIGHT JOIN dept ON (teacher.dept=dept.id)
 ```
 
+5.
 
+```sql
+SELECT name, COALESCE(mobile,'07986 444 2266')
+AS 'mobile number' FROM teacher;
+```
+6.
+
+```sql
+SELECT teacher.name, COALESCE(dept.name, 'None') AS dept
+FROM teacher LEFT JOIN dept ON teacher.dept=dept.id
+```
+
+7.
+
+```sql
+SELECT COUNT(teacher.name) AS name,
+COUNT(teacher.mobile) AS mobile
+FROM teacher;
+```
+
+8.
+
+```sql
+SELECT dept.name, COUNT(teacher.dept) AS staff
+FROM teacher 
+RIGHT JOIN dept ON teacher.dept=dept.id
+GROUP BY dept.name
+```
+
+9.
+
+```sql
+SELECT teacher.name,
+        CASE WHEN dept = 1 OR dept = 2
+            THEN 'Sci'
+            ELSE 'Art'
+        END
+AS dept FROM teacher;
+```
+
+10.
+
+```sql
+SELECT teacher.name, CASE WHEN dept = 1 OR dept = 2
+                          THEN 'Sci'
+                          WHEN dept = 3
+                          THEN 'Art'
+                          ELSE 'None'
+                     END
+AS dept FROM teacher;
+```
