@@ -12,6 +12,7 @@ My solutions to [sql zoo tutorials.](https://sqlzoo.net/wiki/SQL_Tutorial)
 5. [SUM COUNT](#sum-and-count)
 6. [JOIN OPERATION](#join-operation)
 7. [MORE JOIN OPERATION](#more-join-operation)
+8. [NULL INNER JOIN LEFT JOIN RIGHT JOIN](#null-inner-join-left-join-right-join)
 
 ## SELECT basics
 
@@ -654,8 +655,55 @@ WHERE yr=1962 && ord=1;
 ```sql
 SELECT yr,COUNT(title) FROM
 movie JOIN casting ON movie.id=movieid
-OIN actor   ON actorid=actor.id
+JOIN actor ON actorid=actor.id
 WHERE name='Rock Hudson'
 GROUP BY yr
 HAVING COUNT(title) > 2
 ```
+
+12.
+```sql
+```
+
+13.
+```sql
+```
+
+14.
+```sql
+```
+
+15.
+```sql
+```
+
+## NULL, INNER JOIN, LEFT JOIN, RIGHT JOIN
+
+1.
+
+```sql
+SELECT name FROM teacher
+WHERE dept IS NULL;
+```
+
+2.
+
+```sql
+SELECT teacher.name, dept.name
+FROM teacher INNER JOIN dept
+ON (teacher.dept=dept.id)
+```
+
+3.
+```sql
+SELECT teacher.name, dept.name FROM teacher
+LEFT JOIN dept ON (teacher.dept=dept.id)
+```
+
+4.
+```sql
+SELECT teacher.name, dept.name FROM teacher
+RIGHT JOIN dept ON (teacher.dept=dept.id)
+```
+
+
