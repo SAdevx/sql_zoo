@@ -13,6 +13,7 @@ My solutions to [sql zoo tutorials.](https://sqlzoo.net/wiki/SQL_Tutorial)
 6. [JOIN OPERATION](#join-operation)
 7. [MORE JOIN OPERATION](#more-join-operation)
 8. [NULL INNER JOIN LEFT JOIN RIGHT JOIN](#null-inner-join-left-join-right-join)
+9. [Numeric Examples](#numeric-examples)
 
 ## SELECT basics
 
@@ -759,4 +760,88 @@ SELECT teacher.name, CASE WHEN dept = 1 OR dept = 2
                           ELSE 'None'
                      END
 AS dept FROM teacher;
+```
+
+## Numeric Examples
+
+1.
+
+```sql
+SELECT A_STRONGLY_AGREE
+FROM nss
+WHERE question='Q01'
+AND institution='Edinburgh Napier University'
+AND subject='(8) Computer Science';
+```
+
+2.
+
+```sql
+SELECT institution, subject
+FROM nss
+WHERE question='Q15'
+AND score >= 100;
+```
+
+3.
+
+```sql
+SELECT institution, score
+FROM nss 
+WHERE subject = '(8) Computer Science'
+AND score < 50
+AND question ='Q15'
+```
+
+4.
+
+```sql
+SELECT subject, SUM(response) 
+FROM nss 
+WHERE question ='Q22'
+AND (subject = '(8) Computer Science'
+OR subject = '(H) Creative Arts and Design') 
+GROUP BY subject;
+```
+
+5.
+
+```sql
+SELECT subject,SUM(response*A_STRONGLY_AGREE/100)
+FROM nss WHERE question='Q22'
+AND (subject='(8) Computer Science'
+OR subject='(H) Creative Arts and Design')
+GROUP BY subject;
+```
+
+6.
+
+```sql
+SELECT subject,ROUND(SUM(response*A_STRONGLY_AGREE)/SUM(response),0)
+FROM nss
+WHERE question='Q22' AND (subject='(8) Computer Science'
+OR subject='(H) Creative Arts and Design')
+GROUP BY subject;
+```
+
+7.
+
+```sql
+SELECT institution,ROUND(SUM(response*score)/SUM(response),0)
+AS score
+FROM nss
+WHERE question='Q22'
+AND institution 
+LIKE '%Manchester%'
+GROUP BY institution;
+```
+
+8.
+
+```sql
+SELECT institution,SUM(sample),
+SUM(CASE WHEN subject='(8) Computer Science' THEN sample ELSE 0 END)
+AS comp FROM nss
+WHERE question='Q01' AND institution LIKE '%Manchester%' 
+GROUP BY institution
 ```
